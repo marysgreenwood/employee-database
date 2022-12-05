@@ -1,0 +1,23 @@
+{
+  "name": "twelve-merry-cicadas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marysgreenwood/twelve-merry-cicadas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marysgreenwood/twelve-merry-cicadas/issues"
+  },
+  "homepage": "https://github.com/marysgreenwood/twelve-merry-cicadas#readme",
+  "dependencies": {
+    "inquirer": "^9.1.4"
+  }
+}
