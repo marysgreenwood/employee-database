@@ -1,6 +1,6 @@
 const inquirer = require ('inquirer');
-const db= require ('./db/connection')
-
+//const db= require ('./db/connection')
+const viewDepartments= require('./db/index');
 inquirer
 .prompt([
     {
@@ -19,5 +19,9 @@ inquirer
     }
 ])
 .then ((data) => {
+    if ((JSON.stringify(data))=='View all departments'){
+        viewDepartments
+    } else {
     console.log (JSON.stringify(data))
+    };
 })
