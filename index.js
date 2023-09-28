@@ -23,7 +23,7 @@ inquirer
         { name: "Add a department" },
         { name: "Add a role" },
         { name: "Add an employee" },
-        //{ name: "Update an employee role" },
+        { name: "Update an employee role" },
         { name: "Exit" },
       ],
     },
@@ -98,6 +98,24 @@ inquirer
         ])
         .then((data) => {
           addEmployee(data);
+        });
+    } else if (JSON.stringify(data) == "Update an employee role") {
+      inquirer
+        .prompt([
+          {
+            type: "input",
+            name: "employee_id",
+            message: "What is the employee's id?",
+          },
+          {
+            type: "input",
+            name: "role_id",
+            message:
+              "What is the id for the employee's new role (numbers only, no commas)?",
+          },
+        ])
+        .then((data) => {
+          updateEmployee(data);
         });
     } else return;
   });

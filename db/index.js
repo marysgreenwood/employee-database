@@ -72,9 +72,9 @@ addEmployee = db.query(
 );
 //update an employee
 updateEmployee = db.query(
-  `UPDATE employees (first_name, last_name, role, manager_id )
-	SET (first_name= ?, last_name= ?, role_id= ?, manager_id= ?)
-  WHERE id= 1000`,
+  `UPDATE employees (role_id )
+	SET (role_id= ?)
+  WHERE id= ?`,
   //INSERT USER INPUT AS ARRAY OF VARIABLES ABOVE, FIGURE OUT FOREIGN KEY QUESTION
   (err, result) => {
     if (err) {
