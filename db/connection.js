@@ -9,7 +9,7 @@ db = mysql.createConnection(
       // MySQL password
       password: 'Saxony1066',
       database: 'employee_db'
-    },
+    }, 
     console.log(`connected to database`)
 )
     
