@@ -3,33 +3,40 @@ const db = require("./connection");
 //import { data } from '@inquirer/prompts'
 
 //view all departments
-viewDepartments = db.query(`SELECT * FROM departments`, (err, result) => {
-  if (err) {
-    console.log(err);
-  }
-  console.table(result);
-});
+function viewDepartments() {
+  db.query(`SELECT * FROM departments`, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    console.table(result);
+  });
+}
+
 //view all roles
-viewRoles= db.query(
-  `SELECT  roles.title, roles.id, departments.dept_name, roles.salary FROM roles 
+function viewRoles() {
+  db.query(
+    `SELECT  roles.title, roles.id, departments.dept_name, roles.salary FROM roles 
   JOIN departments ON roles.department_id = departments.id;`,
-  (err, result) => {
-    if (err) {
-      console.log(err);
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      console.table(result);
     }
-    console.table(result);
-  }
-);
+  );
+}
 //view all employees
-viewEmployees = db.query(
-  `SELECT employees.id, employees.first_name, employees.last_name FROM employees JOIN roles ON employees.role_id=roles.id JOIN departments ON roles.department_id = departments.id`,
-  (err, result) => {
-    if (err) {
-      console.log(err);
+function viewEmployees() {
+  db.query(
+    `SELECT employees.id, employees.first_name, employees.last_name, employees.manager_id, roles.title FROM employees JOIN roles ON employees.role_id=roles.id`,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      console.table(result);
     }
-    console.table(result);
-  }
-);
+  );
+}
 
 //add a department
 //const answer = await input({ message: 'Enter your name' }); (NEW VERSION)

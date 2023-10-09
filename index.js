@@ -1,9 +1,7 @@
-//TOMORROW (10/5) WRITE UPDATE EMPLOYEE ROLE PROMPT; TRY TO VIEW DEPARTMENTS
-
 const inquirer = require("inquirer");
-//const db = require("./db/connection");
+const db = require("./db/connection");
 
-//const { viewDepartments, viewRoles, viewEmployees } = require("./db/index");
+const { viewDepartments, viewRoles, viewEmployees } = require("./db/index");
 
 //ADD A DEPARTMENT PROMPT
 function newDepartment() {
@@ -49,6 +47,7 @@ function newRole() {
     });
 }
 
+//ADD AN EMPLOYEE PROMPT
 function newEmployee() {
   inquirer
     .prompt([
@@ -81,6 +80,30 @@ function newEmployee() {
     });
 }
 
+//PROMPT TO UPDATE AN EMPLOYEE'S ROLE
+function updateEmployee() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "employeeID",
+        message: "What is the employee's id number? (numerals only)",
+      },
+      {
+        type: "input",
+        name: "newRole",
+        message:
+          "What is id number of the employee's new role? (numerals only)",
+      },
+    ])
+    .then((data) => {
+      console.log(
+        `Employee no. ${data.employeeID} has been reassigned (role no. ${data.newRole})`
+      );
+      rootQuestion();
+    });
+}
+
 //INITIAL ACTION MENU
 function rootQuestion() {
   inquirer
@@ -105,12 +128,17 @@ function rootQuestion() {
     .then(function (data) {
       switch (data.userAction) {
         case "View all departments":
-          console.log("You have chosen to view all departments");
-          rootQuestion();
+          //console.log("You have chosen to view all departments");
+          viewDepartments();
+          setTimeout(rootQuestion, 3000);
           break;
         case "View all roles":
-          console.log("You have chosen to view all roles");
-          rootQuestion();
+          viewRoles();
+          setTimeout(rootQuestion, 3000);
+          break;
+        case "View all employees":
+          viewEmployees();
+          setTimeout(rootQuestion, 3000);
           break;
         case "Add a department":
           newDepartment();
@@ -122,8 +150,7 @@ function rootQuestion() {
           newEmployee();
           break;
         case "Update an employee role":
-          console.log("You have chosen to update an employee's role");
-          rootQuestion();
+          updateEmployee();
           break;
         case "Exit":
           console.log("Goodbye!");

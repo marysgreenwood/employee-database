@@ -16,13 +16,13 @@ VALUES ("Operations Director", 200000.00, 100),
   ("Financial Director", 100000.00, 104),
   ("Accounting", 70000.00, 104);
 
-INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Arya", "Stark", 5, 1002),
-  ("Bran", "Stark", 1, NULL),
-  ("Eddard", "Stark", 4, 1001),
-  ("Robb", "Stark", 6, NULL),
-  ("Theon", "Greyjoy", 7, 1003),
-  ("Catelyn", "Stark", 2, 1001),
-  ("Sansa", "Stark", 3, 1005),
-  ("Jon", "Snow", 8, 1001),
-  ("Tyrion", "Lannister", 9, 1007);
+INSERT INTO employees (first_name, last_name, manager_id, role_id)
+VALUES ("Arya", "Stark", 1002, 5),
+  ("Bran", "Stark", NULL, 1),
+  ("Eddard", "Stark", 1001, 4),
+  ("Robb", "Stark", NULL, 6),
+  ("Theon", "Greyjoy", 1003, 7),
+  ("Catelyn", "Stark", 1001, 2),
+  ("Sansa", "Stark", 1005, 3),
+  ("Jon", "Snow", 1001, 8),
+  ("Tyrion", "Lannister", 1007, 9);
