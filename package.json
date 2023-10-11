@@ -20,6 +20,8 @@
   "homepage": "https://github.com/marysgreenwood/twelve-merry-cicadas#readme",
   "dependencies": {
     "console.table": "^0.10.0",
+    "dotenv": "^16.3.1",
+    "env": "^0.0.2",
     "inquirer": "^8.2.4",
     "mysql2": "^2.3.3"
   }
