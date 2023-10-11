@@ -18,7 +18,7 @@ Uses command-line to interface with preformatted Employee Database. CRUD functio
 
 ## Installation
 
-Download code and create dotenv file to store mysql user information. In command line, run npm install , then log into mysql to create and seed (optional) database. Quit mysql and run "node index.js" to launch program. Click [here] (https://drive.google.com/file/d/1X9QJ7eekF5wo0WZAAmsI6cWRwUEikiOi/view) to view demo of application use.
+Download code and create dotenv file to store mysql user information. In command line, run npm install , then log into mysql to create and seed (optional) database. Quit mysql and run "node index.js" to launch program. Click [here](https://drive.google.com/file/d/1X9QJ7eekF5wo0WZAAmsI6cWRwUEikiOi/view) to view demo of application use.
 
 ## Usage
 
