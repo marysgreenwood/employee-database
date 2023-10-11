@@ -1,7 +1,15 @@
 const inquirer = require("inquirer");
 const db = require("./db/connection");
 
-const { viewDepartments, viewRoles, viewEmployees } = require("./db/index");
+const {
+  viewDepartments,
+  viewRoles,
+  viewEmployees,
+  addDepartment,
+  addRole,
+  addEmployee,
+  updateEmployee,
+} = require("./db/index");
 
 //ADD A DEPARTMENT PROMPT
 function newDepartment() {
@@ -14,8 +22,9 @@ function newDepartment() {
       },
     ])
     .then(function (data) {
-      console.log(`${data.newDept} has been added to the database`);
-      rootQuestion();
+      var deptName = data.newDept;
+      addDepartment(deptName);
+      setTimeout(rootQuestion, 3000);
     });
 }
 
@@ -42,8 +51,8 @@ function newRole() {
       },
     ])
     .then((data) => {
-      console.log(`${data.title} has been added to the database`);
-      rootQuestion();
+      addRole(data.title, data.salary, data.dept_id);
+      setTimeout(rootQuestion, 3000);
     });
 }
 
@@ -75,13 +84,13 @@ function newEmployee() {
       },
     ])
     .then((data) => {
-      console.log(`${data.firstName} has been added to the database`);
-      rootQuestion();
+      addEmployee(data.firstName, data.lastName, data.role_id, data.manager_id);
+      setTimeout(rootQuestion, 3000);
     });
 }
 
 //PROMPT TO UPDATE AN EMPLOYEE'S ROLE
-function updateEmployee() {
+function updateEmployeeRole() {
   inquirer
     .prompt([
       {
@@ -97,10 +106,8 @@ function updateEmployee() {
       },
     ])
     .then((data) => {
-      console.log(
-        `Employee no. ${data.employeeID} has been reassigned (role no. ${data.newRole})`
-      );
-      rootQuestion();
+      updateEmployee(data.newRole, data.employeeID);
+      setTimeout(rootQuestion, 3000);
     });
 }
 
@@ -150,7 +157,7 @@ function rootQuestion() {
           newEmployee();
           break;
         case "Update an employee role":
-          updateEmployee();
+          updateEmployeeRole();
           break;
         case "Exit":
           console.log("Goodbye!");
